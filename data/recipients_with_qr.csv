@@ -1,0 +1,4 @@
+id,email,QRCode_Image,Name
+1,john@example.com,data/qrcodes/john_qr.png,John Doe
+2,jane@example.com,data/qrcodes/jane_qr.png,Jane Smith
+3,bob@example.com,data/qrcodes/bob_qr.png,Bob Johnson

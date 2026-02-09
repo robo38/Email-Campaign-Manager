@@ -1,0 +1,4 @@
+id,email,QRCode_Image,Name
+1,user1@example.com,C:\path\to\qr1.png,John Doe
+2,user2@example.com,C:\path\to\qr2.png,Jane Smith
+3,user3@example.com,C:\path\to\qr3.png,Bob Johnson
