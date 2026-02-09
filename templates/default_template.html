@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Template</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Welcome {{name}}!</h1>
+            <p class="subtitle">We're excited to have you with us</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <p>Hello <strong>{{name}}</strong>,</p>
+            
+            <p>Thank you for joining our community! We're thrilled to have you on board and can't wait to share amazing content with you.</p>
+            
+            <p>Here's what you can expect from us:</p>
+            
+            <ul>
+                <li>✨ Exclusive updates and announcements</li>
+                <li>🎁 Special offers and promotions</li>
+                <li>📚 Valuable resources and insights</li>
+                <li>🤝 Personalized support from our team</li>
+            </ul>
+            
+            <p>To get started, click the button below:</p>
+            
+            <!-- Call to Action Button -->
+            <div class="cta-container">
+                <a href="{{link}}" class="cta-button">Get Started</a>
+            </div>
+            
+            <!-- QR Code (if provided) -->
+            <div class="qr-section">
+                <p>Or scan this QR code:</p>
+                <img src="cid:{{qrcode}}" alt="QR Code" class="qr-code">
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Best regards,<br>
+            <strong>Your Team</strong></p>
+            
+            <hr>
+            
+            <p class="legal">
+                This email was sent to you because you subscribed to our mailing list.<br>
+                If you no longer wish to receive these emails, you can <a href="{{link}}">unsubscribe here</a>.
+            </p>
+            
+            <p class="copyright">
+                © 2026 Your Company. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
