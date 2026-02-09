@@ -1,0 +1,47 @@
+# Email Campaign Manager - .gitignore
+
+# Configuration files with sensitive data
+config/smtp_config.json
+smtp_config.json
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.log
+temp/
+tmp/
+
+# Email templates (optional - remove if you want to track them)
+# templates/*.html
+
+# CSV data files with personal information
+# data/*.csv
+# *.csv
+
+# Backup files
+*.bak
+*.backup

@@ -1,7 +1,42 @@
-1/ you need to install python
-2/ can you just click or run cmd python sender.py
-3/ you Replay-To it's just for hide replays can leave it empty
+# Email Campaign Manager - Python Dependencies
+
+# Note: tkinter is included with Python by default
+# For Linux users: sudo apt-get install python3-tk
+
+# No external dependencies required!
+# All required libraries are part of Python standard library:
+# - tkinter (GUI framework)
+# - smtplib (SMTP client)
+# - email.mime.* (Email composition)
+# - csv (CSV file handling)
+# - json (Configuration storage)
+# - html.parser (HTML parsing)
 
 ################################
-Website for design templates : https://beefree.io/
-#################################
+# Installation Instructions
+################################
+# 1. Install Python 3.8+ from python.org
+# 2. Run the application:
+#    python main.py
+#    OR
+#    python sender.py (original version)
+#
+# 3. Reply-To field is optional (can be left empty)
+#    Used to specify a different email for replies
+
+################################
+# Email Template Design
+################################
+# Website for design templates: https://beefree.io/
+# Export as HTML and paste into Compose tab
+
+################################
+# Gmail Setup (Recommended)
+################################
+# 1. Enable 2-Factor Authentication
+# 2. Generate App Password:
+#    Google Account > Security > 2-Step Verification > App passwords
+# 3. Use App Password in SMTP settings
+# 4. Server: smtp.gmail.com
+# 5. Port: 587
+
