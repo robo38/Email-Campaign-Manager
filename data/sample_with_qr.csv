@@ -1,4 +1,4 @@
-id,email,QRCode_Image,Name
-1,user1@example.com,C:\path\to\qr1.png,John Doe
-2,user2@example.com,C:\path\to\qr2.png,Jane Smith
-3,user3@example.com,C:\path\to\qr3.png,Bob Johnson
+email,link,full name
+user1@example.com,https://example.com/update?id=1,John Doe
+user2@example.com,https://example.com/update?id=2,Jane Smith
+user3@example.com,https://example.com/update?id=3,Bob Johnson

@@ -193,7 +193,6 @@ class SendTab(TabBase):
                 personalized_body = body
                 personalized_body = personalized_body.replace('{{name}}', recipient['name'])
                 personalized_body = personalized_body.replace('{{link}}', recipient['link'])
-                personalized_body = personalized_body.replace('{{qrcode}}', 'qrcode')  # Replace with Content-ID
                 
                 # Handle embedded images
                 embedded_images = None
@@ -201,13 +200,12 @@ class SendTab(TabBase):
                 if attached_image:
                     embedded_images = {'attached_image': attached_image}
                 
-                # Send email with correct parameter names
+                # Send email
                 self.app.email_sender.send_email(
                     to_email=recipient['email'],
                     subject=final_subject,
                     html_content=personalized_body,
-                    embedded_images=embedded_images,
-                    qrcode_path=recipient.get('qrcode')
+                    embedded_images=embedded_images
                 )
                 
                 success += 1

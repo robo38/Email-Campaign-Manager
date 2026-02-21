@@ -137,45 +137,29 @@ class EmailSender:
             if ',' in line:
                 parts = [p.strip() for p in line.split(',')]
                 
-                if len(parts) >= 4:
-                    # Format: id,email,QRCode_Image,Name
-                    email = parts[1]
-                    qrcode_path = parts[2] if parts[2] else ""
-                    name = parts[3] if parts[3] else ""
-                    link = "#"
-                elif len(parts) >= 3:
-                    # Format: email,name,link OR email,QRCode,Name
+                if len(parts) >= 3:
+                    # Format: email,link,full name
                     email = parts[0]
-                    if os.path.exists(parts[1]) or '/' in parts[1] or '\\' in parts[1]:
-                        qrcode_path = parts[1]
-                        name = parts[2] if len(parts) > 2 else ""
-                        link = "#"
-                    else:
-                        name = parts[1]
-                        link = parts[2] if len(parts) > 2 else "#"
-                        qrcode_path = ""
+                    link = parts[1] if parts[1] else "#"
+                    name = parts[2] if parts[2] else ""
                 elif len(parts) >= 2:
                     email = parts[0]
-                    name = parts[1]
-                    link = "#"
-                    qrcode_path = ""
+                    link = parts[1] if parts[1].startswith('http') else "#"
+                    name = parts[1] if not parts[1].startswith('http') else ""
                 else:
                     email = parts[0]
                     name = ""
                     link = "#"
-                    qrcode_path = ""
             else:
                 email = line.strip()
                 name = ""
                 link = "#"
-                qrcode_path = ""
 
             if re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', email):
                 recipients.append({
                     "email": email, 
                     "name": name if name else "Valued Customer", 
-                    "link": link,
-                    "qrcode": qrcode_path
+                    "link": link
                 })
 
         return recipients

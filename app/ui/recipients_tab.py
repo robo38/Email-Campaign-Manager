@@ -93,8 +93,8 @@ class RecipientsTab:
         
         formats = [
             "   📧 email@example.com  (one per line)",
-            "   📧 Name,email@example.com  (CSV format)",
-            "   📧 Name,email@example.com,data/qrcodes/qr.png  (CSV with QR codes)"
+            "   📧 email@example.com,https://link.com,Full Name  (CSV with link)",
+            "   📧 email@example.com,https://link.com  (CSV with link, no name)"
         ]
         
         for fmt in formats:
@@ -108,17 +108,16 @@ class RecipientsTab:
         qr_frame = ttk.Frame(qr_card, style="Card.TFrame")
         qr_frame.pack(fill=tk.X, padx=15, pady=15)
         
-        ttk.Label(qr_frame, text="📱 QR Code Setup (Optional):", 
+        ttk.Label(qr_frame, text="� Link Setup:", 
                  foreground="#8b5cf6", font=("Segoe UI", 11, "bold")).pack(anchor="w", pady=(5, 8))
         
         qr_steps = [
-            "   1️⃣ Create folder: data/qrcodes/",
-            "   2️⃣ Put your QR code images there (john_qr.png, jane_qr.png, etc.)",
-            "   3️⃣ Create CSV with format:",
-            "      id,email,QRCode_Image,Name",
-            "      1,john@email.com,data/qrcodes/john_qr.png,John Doe",
-            "      2,jane@email.com,data/qrcodes/jane_qr.png,Jane Smith",
-            "   4️⃣ Use {{qrcode}} placeholder in your email template"
+            "   1️⃣ Create CSV with format:",
+            "      email,link,full name",
+            "      john@email.com,https://example.com/u/1,John Doe",
+            "      jane@email.com,https://example.com/u/2,Jane Smith",
+            "   2️⃣ Use {{link}} placeholder in your email template",
+            "   3️⃣ Use {{name}} placeholder for the recipient's name"
         ]
         
         for step in qr_steps:
@@ -268,20 +267,19 @@ class RecipientsTab:
         )
         example_text.pack(fill=tk.BOTH, expand=True)
         
-        csv_content = """id,email,QRCode_Image,Name
-1,john@example.com,data/qrcodes/john_qr.png,John Doe
-2,maria@example.com,data/qrcodes/maria_qr.png,Maria Garcia
-3,ahmed@example.com,data/qrcodes/ahmed_qr.png,Ahmed Khan
-4,sarah@example.com,data/qrcodes/sarah_qr.png,Sarah Johnson
+        csv_content = """email,link,full name
+john@example.com,https://example.com/update?id=1,John Doe
+maria@example.com,https://example.com/update?id=2,Maria Garcia
+ahmed@example.com,https://example.com/update?id=3,Ahmed Khan
+sarah@example.com,https://example.com/update?id=4,Sarah Johnson
 
 📝 Notes:
 - First line is the header (column names)
-- QRCode_Image column: path to the QR code image
-- Supports PNG, JPG formats
-- QR codes are optional (can be left empty)
-- Use {{qrcode}} in your email template to insert the QR code
+- link column: the personalized URL for each recipient
+- Use {{link}} in your email template to insert the link
+- Use {{name}} in your email template to insert the name
 
-💡 Without QR codes (simpler format):
+💡 Without links (simpler format):
 email
 john@example.com
 maria@example.com
